@@ -1,5 +1,6 @@
 <script>
 import { createEventDispatcher } from 'svelte'
+import {colorMap} from "./colorMap.js";
 
 const dispatch = createEventDispatcher();
 /** @type {color} */
@@ -28,9 +29,9 @@ const deleteValue = value => {
 
 <div class="colorPanel">
     <h2 class="font-medium text-md p-3 pl-4 pr-4">
-        {color.name.replace("_", " ")}
+        <span class="w-2 h-2 inline-block" style={"background-color:" + colorMap(color.name)}></span> {color.name}
     </h2>
-    <div class="p-4 pt-1 pl-5 cursor-pointer" on:click={toggleValues} on:keyup={toggleValues}>
+    <div class="p-4 pt-1 pl-5 cursor-pointer uppercase text-xs font-medium" on:click={toggleValues} on:keyup={toggleValues}>
         {#if valuesExpanded}&uarr;{:else}&darr;{/if} Values
     </div>
     <div class={"grid grid-cols-3 p-5 pt-0 " + (valuesExpanded ? "block" : "hidden")}>
@@ -46,14 +47,14 @@ const deleteValue = value => {
             </div>
             <div class="pt-1 flex align-center">
                 <img
-                    src="/trash-xmark.svg"
+                    src="/garbage-can.png"
                     alt="delete"
-                    class={"w-4 cursor-pointer " + (value.time > 0 ? "block" : "hidden")}
+                    class={"w-4 object-contain cursor-pointer " + (value.time > 0 ? "block" : "hidden")}
                     on:click={() => deleteValue(value)}
                     on:keyup={() => deleteValue(value)}
                 />
             </div>
         {/each}
     </div>
-    <hr />
+
 </div>

@@ -5,12 +5,12 @@
 
     /** @type {aip} */
     export let aip;
+    // ref to App's reset function
+    export let reset;
 
     const aipStates = [];
 
-    let shiftDirection = "earlier"
-    let shiftMins = 0;
-
+    // called when a color element is updated.  passed by ref so nothing to do here except trigger an update.
     const updateAip = color => {
       aip = aip;
     };
@@ -21,6 +21,10 @@
       console.log("undo");
     };
 
+    // global shift state
+    let shiftDirection = "earlier"
+    let shiftMins = 0;
+    // handle global time shifting
     const shift = () => {
       const minuteDiff = shiftDirection === "earlier" ? shiftMins * -1 : shiftMins;
       shifter(aip, minuteDiff);
@@ -28,10 +32,18 @@
     };
 </script>
 
-<h1 class="text-3xl font-medium pb-8 text-center">Aqua Illumination Light Scheduler</h1>
+<div class="flex justify-between align-center">
+    <h1 class="text-3xl font-medium pb-8">Aqua Illumination Light Scheduler</h1>
+    <div>
+        <span class="cursor-pointer text-red-500 border-red-500 border px-3 py-1 mr-2 rounded" on:click={reset}>Start Over</span>
+        <span class="cursor-pointer text-white bg-blue-800 border-blue-800 border-2 px-3 py-1 rounded">Export</span>
+    </div>
+</div>
 <div class="flex">
     <div class="w-3/4 pr-8">
-        <Chart aip={aip} />
+        <div class="sticky top-0">
+            <Chart aip={aip} />
+        </div>
     </div>
     <div class="grow">
         <div class="rounded-md bg-white shadow mb-8">
@@ -40,13 +52,13 @@
             <div class="p-4 text-sm">
                 <strong>Shift Schedule</strong>
                 <div class="mt-2">
-                    <select class="border p-1" bind:value={shiftDirection}>
+                    <select class="border p-1 rounded" bind:value={shiftDirection}>
                         <option value="earlier">Earlier</option>
                         <option value="later">Later</option>
                     </select>
                     &nbsp;by&nbsp;
-                    <input bind:value={shiftMins} type="text" class="border w-10 p-1" /> &nbsp;Mins
-                    <button on:click={shift} class="cursor-pointer bg-black rounded-md text-white p-1 pl-2 pr-2 ml-4">Run</button>
+                    <input bind:value={shiftMins} type="text" class="border w-10 p-1 rounded" /> &nbsp;Mins
+                    <button on:click={shift} class="cursor-pointer bg-slate-900 text-xs rounded text-white p-1 pl-2 pr-2 ml-4">Apply</button>
                 </div>
             </div>
         </div>

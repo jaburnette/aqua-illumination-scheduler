@@ -8,7 +8,6 @@ let ctx;
 let chart;
 
 const buildChart = (ctx,d) => {
-  console.log("build");
   chart = new Chart(ctx, {
     type: "line",
     data: buildDataset(),
@@ -52,6 +51,6 @@ const buildDataset = () => {
 };
 </script>
 
-<div>
+<div class="rounded-xl shadow p-8 bg-white">
     <canvas use:buildChart={aip}></canvas>
 </div>
