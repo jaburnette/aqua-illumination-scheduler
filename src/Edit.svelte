@@ -100,7 +100,7 @@
                 </div>
             </div>
         </div>
-        <div class="rounded-md shadow bg-white mb-16">
+        <div class="rounded-md shadow bg-white mb-2">
             <h1 class="text-lg p-4 font-bold">Color Channels</h1>
             <hr />
             {#each aip.entries as entry}
