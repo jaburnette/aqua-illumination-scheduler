@@ -42,7 +42,7 @@ jobs:
       - name: Add Analytics
         run: |
           placeholder='<!--analytics-->'
-          analyticsTag='<script defer data-domain="jaburnette.github.io\/aqua-illumination-scheduler" src="http:\/\/analytics.bricksetpricetracker.com\/js\/script.js"><\/script>'
+          analyticsTag='<script defer data-domain="jaburnette.github.io\/aqua-illumination-scheduler" src="https:\/\/analytics.bricksetpricetracker.com\/js\/script.js"><\/script>'
           sed -i "s/$placeholder/$analyticsTag/" "./dist/index.html"
       - name: Setup Pages
         uses: actions/configure-pages@v3
