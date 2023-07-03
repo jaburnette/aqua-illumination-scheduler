@@ -9,6 +9,10 @@ Editing the schedule on your phone is difficult and doesn't allow for some basic
  - Shifting the schedule forward or backwards in time to match when you want the lights to be on
  - Increasing/decreasing the intensity of a spectrum overall
 
+__You can use the app at https://jaburnette.github.io/aqua-illumination-scheduler/__
+
+### Running locally
+
 The app is written in svelte and sits on top of vite.  To run it locally:
 
 ```

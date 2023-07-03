@@ -71,7 +71,7 @@
     <p class="mb-6">
         This utility will allow you to create or edit a .aip light schedule file.  If you don't want to start from scratch, you can grab
         prebuilt AIP files from
-        <a class="underline" href="https://www.aquaillumination.com/lightsciences/signature-series">the Aquatic Illumination website</a>.
+        <a class="underline" href="https://www.aquaillumination.com/lightsciences/signature-series">the Aqua Illumination website</a>.
     </p>
     <label for="file" class="block font-bold mb-2">Upload a file</label>
     <input type="file" id="file" bind:files />
