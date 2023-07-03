@@ -140,7 +140,7 @@ const shiftIntensity = () => {
             </div>
             <div class="pt-1 flex align-center">
                 <img
-                    src="/garbage-can.png"
+                    src="garbage-can.png"
                     alt="delete"
                     class={"w-4 object-contain cursor-pointer " + (value.time > 0 ? "block" : "hidden")}
                     on:click={() => deleteValue(value)}
