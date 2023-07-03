@@ -43,7 +43,7 @@ jobs:
         run: |
           placeholder='<!--analytics-->'
           analyticsTag='<script defer data-domain="jaburnette.github.io\/aqua-illumination-scheduler" src="http:\/\/analytics.bricksetpricetracker.com\/js\/script.js"><\/script>'
-          sed -i'' -e "s/$placeholder/$analyticsTag/" index.html
+          sed -i "s/$placeholder/$analyticsTag/" index.html
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
