@@ -2,6 +2,7 @@
     import ColorPanel from "./ColorPanel.svelte";
     import Chart from "./Chart.svelte";
     import {shifter} from "./mutations";
+    import {serializeXml} from "./parser.js";
 
     /** @type {aip} */
     export let aip;
@@ -11,7 +12,7 @@
     const aipStates = [];
 
     // called when a color element is updated.  passed by ref so nothing to do here except trigger an update.
-    const updateAip = color => {
+    const updateAip = () => {
       aip = aip;
     };
 
@@ -26,9 +27,21 @@
     let shiftMins = 0;
     // handle global time shifting
     const shift = () => {
-      const minuteDiff = shiftDirection === "earlier" ? shiftMins * -1 : shiftMins;
+      const minuteDiff = shiftDirection === "earlier" ? shiftMins * -1 : shiftMins * 1;
       shifter(aip, minuteDiff);
       aip = aip;
+    };
+
+    // force a file download of the xml string
+    const exportSchedule = () => {
+      const xmlString = serializeXml(aip);
+      const blob = new Blob([xmlString], {type: "text/xml"});
+      const downloadEl = document.createElement("a");
+      downloadEl.href = URL.createObjectURL(blob);
+      downloadEl.download = "ai-schedule.aip";
+      document.body.appendChild(downloadEl);
+      downloadEl.click();
+      document.body.removeChild(downloadEl);
     };
 </script>
 
@@ -36,7 +49,7 @@
     <h1 class="text-3xl font-medium pb-8">Aqua Illumination Light Scheduler</h1>
     <div>
         <span class="cursor-pointer text-red-500 border-red-500 border px-3 py-1 mr-2 rounded" on:click={reset}>Start Over</span>
-        <span class="cursor-pointer text-white bg-blue-800 border-blue-800 border-2 px-3 py-1 rounded">Export</span>
+        <span class="cursor-pointer text-white bg-blue-800 border-blue-800 border-2 px-3 py-1 rounded" on:click={exportSchedule}>Export</span>
     </div>
 </div>
 <div class="flex">

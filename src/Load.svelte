@@ -9,9 +9,7 @@
     $: if (files) {
         const aipFile = files[0];
         const reader = new FileReader();
-        reader.addEventListener("load", () => {
-          aipXml = reader.result;
-        });
+        reader.addEventListener("load", () => aipXml = reader.result);
         reader.readAsText(aipFile);
     }
 
