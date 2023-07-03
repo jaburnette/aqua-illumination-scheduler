@@ -18,20 +18,55 @@
           checksum: "",
           version: 2,
           entries: [
-            {name: "deep_red", values: []},
-            {name: "uv", values: []},
-            {name: "violet", values: []},
-            {name: "cool_white", values: []},
-            {name: "green", values: []},
-            {name: "blue", values: []},
-            {name: "royal", values: []},
+            {name: "deep_red", values:
+                [
+                  {time: 0, intensity: 0},
+                  {time: 1439, intensity: 0},
+                ]
+            },
+            {name: "uv", values:
+                [
+                  {time: 0, intensity: 0},
+                  {time: 1439, intensity: 0},
+                ]
+            },
+            {name: "violet", values:
+                [
+                  {time: 0, intensity: 0},
+                  {time: 1439, intensity: 0},
+                ]
+            },
+            {name: "cool_white", values:
+                [
+                  {time: 0, intensity: 0},
+                  {time: 1439, intensity: 0},
+                ]
+            },
+            {name: "green", values:
+                [
+                  {time: 0, intensity: 0},
+                  {time: 1439, intensity: 0},
+                ]
+            },
+            {name: "blue", values:
+                [
+                  {time: 0, intensity: 0},
+                  {time: 1439, intensity: 0},
+                ]
+            },
+            {name: "royal", values:
+                [
+                  {time: 0, intensity: 0},
+                  {time: 1439, intensity: 0},
+                ]
+            },
           ],
         };
     };
 
 </script>
 
-<div class="w-1/2 bg-white rounded-md shadow p-4 mx-auto">
+<div class="md:w-1/2 bg-white rounded-md shadow p-4 mx-auto">
     <h1 class="text-2xl mb-4">Aqua Illumination Light Schedule Editor</h1>
     <p class="mb-6">
         This utility will allow you to create or edit a .aip light schedule file.  If you don't want to start from scratch, you can grab

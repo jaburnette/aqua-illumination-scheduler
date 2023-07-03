@@ -42,7 +42,7 @@
   }
 </script>
 
-<div>
+<div class="px-4 md:px-0">
     {#if phase === "load"}
         <Load bind:aipXml={aipXml} bind:aipObj={aipObj} />
     {/if}
