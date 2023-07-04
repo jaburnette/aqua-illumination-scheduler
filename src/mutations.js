@@ -33,8 +33,8 @@ export const intensityShift = (colorEntries, intensityDiff) => {
       if (parseInt(val.intensity) === 0)
         return;
       let newValue = parseInt(val.intensity) + intensityDiff;
-      if (newValue > 1000)
-        newValue = 1000;
+      if (newValue > 1800)
+        newValue = 1800;
       if (newValue < 0)
         newValue = 0;
       val.intensity = newValue;

@@ -17,7 +17,7 @@ const buildChart = (ctx,d) => {
       scales: {
         y: {
           min: 0,
-          max: 1024,
+          max: 1800,
         },
         x: {
           max: 1440,
