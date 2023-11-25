@@ -35,13 +35,20 @@
     };
 
     // global shift intensity
-    let shiftIntensityDirection = "higher"
+    let shiftIntensityDirection = "lower"
+    let shiftIntensityUnit = "percent";
     let shiftIntensityVal = 0;
     const shiftIntensity = () => {
       if (parseInt(shiftIntensityVal) < 0)
         shiftIntensityVal *= -1;
-      const intensityDiff = shiftIntensityDirection === "lower" ? shiftIntensityVal * -1 : shiftIntensityVal * 1;
-      intensityShift(aip.entries, intensityDiff);
+
+      const intensityDiff =
+        shiftIntensityDirection === "lower"
+        ? shiftIntensityVal * -1
+        : shiftIntensityVal * 1;
+
+      intensityShift(aip.entries, intensityDiff, shiftIntensityUnit);
+
       aip = aip;
     };
 
@@ -91,11 +98,15 @@
                 <strong>Shift Intensity</strong>
                 <div class="mt-2">
                     <select class="border p-1 rounded" bind:value={shiftIntensityDirection}>
-                        <option value="higher">Higher</option>
                         <option value="lower">Lower</option>
+                        <option value="higher">Higher</option>
                     </select>
                     &nbsp;by&nbsp;
                     <input bind:value={shiftIntensityVal} type="text" class="border w-10 p-1 rounded" />
+                    <select class="border p-1 rounded" bind:value={shiftIntensityUnit}>
+                        <option value="percent">%</option>
+                        <option value="points">points</option>
+                    </select>
                     <button on:click={shiftIntensity} class="cursor-pointer bg-slate-900 text-xs rounded text-white p-1 pl-2 pr-2 ml-4">Apply</button>
                 </div>
             </div>
